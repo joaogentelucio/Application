@@ -70,7 +70,7 @@ header {
 
 #main-header { 
     background-color: #fafafa;
-    width: calc(100% - 60px);
+    width: calc(100% - 50px);
     float: left;
 }
 header .div-txt, .div-user {
