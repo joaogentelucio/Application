@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Loading...</h1>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    // Verificar se o usuário está logado
+        const user = localStorage.getItem('user');
+
+        // Se um usuário estiver salvo no localStorage, redireciona para a Dashboard
+        if (user) {
+            window.location.href = 'Resources/Pages/Dashboard.html';
+        } else {
+            // Caso contrário, redireciona para a tela de login
+            window.location.href = 'Resources/Login.html';
+        }
+    });
+
+    </script>
+</body>
+</html>

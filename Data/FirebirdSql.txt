@@ -1,0 +1,106 @@
+CREATE TABLE usuarios (
+    id INTEGER PRIMARY KEY,
+    nome VARCHAR(45) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL
+);
+
+CREATE SEQUENCE usuarios_seq;
+
+CREATE TRIGGER set_usuarios_id FOR usuarios
+BEFORE INSERT
+AS
+BEGIN
+  IF (NEW.ID IS NULL) THEN
+    NEW.ID = NEXT VALUE FOR usuarios_seq;
+END;
+
+-- Cria um novo usuário (sem fornecer o ID, ele será auto incrementado)
+
+INSERT INTO usuarios (nome, email, senha)
+VALUES ('João Vitor Gentelucio de Azevedo', 'joaogentelucio@email.com', 'Joao1827@');
+
+INSERT INTO usuarios (nome, email, senha) VALUES 
+('Carlos', 'carlos@email.com', 'senhaCarlos'),
+('Maria', 'maria@email.com', 'senhaMaria'),
+('José', 'jose@email.com', 'senhaJose');
+
+
+
+-- Atualiza informações do usuário ou atualiza em lote (Fornecendo o ID)
+
+UPDATE usuarios
+SET email = 'joaogentelucio@gmail.com'
+WHERE ID = 1;
+
+
+UPDATE usuarios
+SET nome = 'João Silva', email = 'joao.silva@email.com', senha = 'novasenha123'
+WHERE ID = 1;
+
+
+-- Deletar usuário ou deletar em lote (Fornecendo o ID)
+
+DELETE FROM usuarios WHERE ID = 1;
+
+DELETE FROM usuarios WHERE ID IN (1, 2, 3);
+
+
+-- Busca todos os usuarios
+
+SELECT * FROM usuarios;
+
+
+-- Busca todos os usuarios pelo Id e Nome
+
+select ID, NOME FROM USUARIOS;
+
+
+-- Busca por um usuario pelo Id e Nome
+
+select ID, nome FROM USUARIOS
+where ID = 2;
+
+
+-- Busca varios usuarios pelo Id e Nome
+
+SELECT ID, nome 
+FROM usuarios 
+WHERE ID IN (2, 3);
+
+
+-- Busca usuarios que contem o mesmo caracterere no nome
+
+SELECT ID, nome 
+FROM usuarios 
+WHERE UPPER(nome) LIKE UPPER('%e%');
+
+
+-- Busca usuarios que contem o mesmo caracterere minusculo ou maiusculo no nome
+
+SELECT ID, nome 
+FROM usuarios 
+WHERE UPPER(nome) LIKE UPPER('%a%') OR UPPER(nome) LIKE UPPER('%ã%');
+
+-- Ordena de forma crescente
+
+SELECT ID, nome 
+FROM usuarios 
+ORDER BY ID ASC;
+
+-- Ordena de forma crescente
+
+SELECT ID, nome 
+FROM usuarios 
+ORDER BY ID DESC;
+
+
+-- Ordena de forma crescente ou decrescente
+
+SELECT ID, NOME, EMAIL
+FROM usuarios 
+ORDER BY NOME ASC;
+
+SELECT ID, NOME, EMAIL
+FROM usuarios 
+ORDER BY NOME DESC;

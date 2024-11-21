@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuários</title>
+    <link rel="stylesheet" href="/Resources/Styles/Usuarios.css">
+    <link rel="stylesheet" href="/Resources/Styles/Dashboard.css">
+    <link rel="stylesheet" href="/Resources/Styles/Sidebar.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Aside que aparece em todas as páginas -->
+        <aside>
+            <i class="fa-solid fa-chevron-right" id="menu-icon"></i><!-- Ícone para abrir/fechar -->
+            <i class="fa-solid fa-user" id="img"></i>
+            <nav id="menu">
+                <ul>
+                    <li><a href="#"><i class="fa-solid fa-home"></i><span class="menu-text"> Home</span></a></li>
+                    <li><a href="#"><i class="fa-solid fa-info-circle"></i><span class="menu-text"> Sobre</span></a></li>
+                    <li><a href="#"><i class="fa-solid fa-cogs"></i><span class="menu-text"> Serviços</span></a></li>
+                    <li><a href="Usuarios.html"><i class="fa-solid fa-users"></i><span class="menu-text"> Usuários</span></a></li>
+                    <li id="ajustes"><a href="#"><i class="fa-solid fa-gear"></i><span class="menu-text"> Ajustes</span></a></li> <!-- Item Ajustes -->
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Conteúdo principal -->
+        <div class="content">
+            <h1>Lista de Usuários</h1>
+            <div id="user-list" class="user-list"></div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/2ea8344aaa.js" crossorigin="anonymous"></script>
+    <script src="/Resources/Scripts/Usuarios.js"></script>
+    <script src="/Resources/Scripts/Menu.js"></script>
+</body>
+</html>
